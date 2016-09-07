@@ -25,15 +25,15 @@ public function query($sql) {
 			$settings[$result['key']] = $result['value'];
 		}
 
-		if (!empty($settings) && ($settings['pvnm_profiler_status'] == 1 || ($settings['pvnm_profiler_status'] == 2 && isset($uri[2]) && $uri[2] != 'admin'))) {
+		if (!empty($settings) && ($settings['pvnm_profiler_status'] == 1 || ($settings['pvnm_profiler_status'] == 2 && (!isset($uri[2]) || isset($uri[2]) && $uri[2] != 'admin')))) {
 			if ($settings['pvnm_profiler_body_status']) {
-				print_r('<pre>');
+				print_r('<pre style="font-size: 11px;">');
 				print_r('Page: http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '<br>');
 
 				if ($this->time >= $settings['pvnm_profiler_page_time']) {
-					print_r('Load Time SQL Queries: <span style="color: red !important;">' . $this->time . '</span><br>');
+					print_r('Load Time SQL Queries: <span style="color: red !important;">' . $this->time . ' s</span><br>');
 				} else {
-					print_r('Load Time SQL Queries: ' . $this->time . '<br>');
+					print_r('Load Time SQL Queries: ' . $this->time . ' s<br>');
 				}
 
 				print_r('SQL Queries (' . count($this->queries) . '):<br>');
@@ -57,6 +57,14 @@ public function query($sql) {
 				}
 
 				print_r('<script>console.info("Profiler: ' . $this->time . ' s - http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '");console.log(' . json_encode($console_log) . ');</script>');
+			}
+
+			if (!$settings['pvnm_profiler_page_write'] || ($settings['pvnm_profiler_page_write'] && $this->time >= $settings['pvnm_profiler_page_time'])) {
+				var_dump('sql');
+			}
+
+			if ($settings['pvnm_profiler_page_email'] && $this->time >= $settings['pvnm_profiler_page_time']) {
+				var_dump('email');
 			}
 		}
 	}

@@ -42,11 +42,11 @@
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off"><?php echo $text_catalog; ?></label>
 										<?php } elseif ($pvnm_profiler_status == 2) { ?>
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
-										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off" checked="checked"><?php echo $text_enabled; ?></label>
-										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off"><?php echo $text_catalog; ?></label>
+										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
+										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off" checked="checked"><?php echo $text_catalog; ?></label>
 										<?php } else { ?>
-										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
-										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off" checked="checked"><?php echo $text_enabled; ?></label>
+										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="0" autocomplete="off" checked="checked"><?php echo $text_disabled; ?></label>
+										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off"><?php echo $text_catalog; ?></label>
 										<?php } ?>
 									</div>

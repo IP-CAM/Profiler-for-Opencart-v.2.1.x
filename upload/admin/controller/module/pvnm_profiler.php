@@ -118,4 +118,16 @@ class ControllerModulePvnmProfiler extends Controller {
 
 		return !$this->error;
 	}
+
+	public function install() {
+		$this->load->model('module/pvnm_profiler');
+
+		$this->model_module_pvnm_profiler->install();
+	}
+
+	public function uninstall() {
+		$this->load->model('module/pvnm_profiler');
+
+		$this->model_module_pvnm_profiler->uninstall();
+	}
 }

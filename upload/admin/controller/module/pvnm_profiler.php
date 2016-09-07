@@ -26,6 +26,7 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['text_disabled'] = $this->language->get('text_disabled');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_catalog'] = $this->language->get('text_catalog');
+		$data['text_slow'] = $this->language->get('text_slow');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_body_status'] = $this->language->get('entry_body_status');
 		$data['entry_console_status'] = $this->language->get('entry_console_status');

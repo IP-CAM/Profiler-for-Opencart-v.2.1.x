@@ -13,6 +13,7 @@ $_['text_edit']               = 'Edit Module';
 $_['text_documentation']      = 'Documentation';
 $_['text_developer']          = 'Developer';
 $_['text_catalog']            = 'Only in Catalog';
+$_['text_slow']               = 'Only Slow Pages';
 
 // Entry
 $_['entry_status']            = 'Status';
@@ -20,7 +21,7 @@ $_['entry_body_status']       = 'Displayed In Body';
 $_['entry_console_status']    = 'Displayed In Browser Console';
 $_['entry_query_time']        = 'Time Slow Query';
 $_['entry_page_time']         = 'Time Slow Page';
-$_['entry_page_write']        = 'Write Only Slow Pages';
+$_['entry_page_write']        = 'Logging of Queries';
 $_['entry_page_email']        = 'Notify About Slow Pages';
 
 // Error

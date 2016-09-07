@@ -96,12 +96,18 @@
 								<label class="col-sm-2 control-label" for="input-pvnm_profiler_page_write"><?php echo $entry_page_write; ?></label>
 								<div class="col-sm-10">
 									<div class="btn-group" data-toggle="buttons">
-										<?php if ($pvnm_profiler_page_write) { ?>
+										<?php if ($pvnm_profiler_page_write == 1) { ?>
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_page_write" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
 										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_page_write" value="1" autocomplete="off" checked="checked"><?php echo $text_enabled; ?></label>
+										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_page_write" value="2" autocomplete="off"><?php echo $text_slow; ?></label>
+										<?php } elseif ($pvnm_profiler_page_write == 2) { ?>
+										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_page_write" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
+										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_page_write" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
+										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_page_write" value="2" autocomplete="off" checked="checked"><?php echo $text_slow; ?></label>
 										<?php } else { ?>
 										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_page_write" value="0" autocomplete="off" checked="checked"><?php echo $text_disabled; ?></label>
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_page_write" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
+										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_page_write" value="2" autocomplete="off"><?php echo $text_slow; ?></label>
 										<?php } ?>
 									</div>
 								</div>

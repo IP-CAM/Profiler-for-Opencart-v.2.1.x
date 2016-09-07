@@ -28,6 +28,7 @@
 				<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab-settings" data-toggle="tab"><?php echo $tab_settings; ?></a></li>
+						<li><a href="#tab-email" data-toggle="tab"><?php echo $tab_email; ?></a></li>
 						<li><a href="#tab-help" data-toggle="tab"><?php echo $tab_help; ?></a></li>
 					</ul>
 					<div class="tab-content">
@@ -112,6 +113,8 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="tab-pane" id="tab-email">
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="input-pvnm_profiler_page_email"><?php echo $entry_page_email; ?></label>
 								<div class="col-sm-10">
@@ -125,6 +128,54 @@
 										<?php } ?>
 									</div>
 								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"><?php echo $entry_macros; ?></label>
+								<div class="col-sm-10">
+									<div class="panel panel-default">
+									<table class="table">
+										<tr>
+											<td>{url}</td>
+											<td><?php echo $text_email_url; ?></td>
+										</tr>
+										<tr>
+											<td>{date}</td>
+											<td><?php echo $text_email_date; ?></td>
+										</tr>
+										<tr>
+											<td>{time}</td>
+											<td><?php echo $text_email_time; ?></td>
+										</tr>
+										<tr>
+											<td>{queries}</td>
+											<td><?php echo $text_email_queries; ?></td>
+										</tr>
+									</table>
+									</div>
+								</div>
+							</div>
+							<ul class="nav nav-tabs" id="language-email">
+								<?php foreach ($languages as $language) { ?>
+								<li><a href="#language-email<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
+								<?php } ?>
+							</ul>
+							<div class="tab-content">
+								<?php foreach ($languages as $language) { ?>
+								<div class="tab-pane" id="language-email<?php echo $language['language_id']; ?>">
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="input-pvnm_profiler_email_subject<?php echo $language['code']; ?>"><?php echo $entry_subject; ?></label>
+										<div class="col-sm-10">
+											<input type="text" name="pvnm_profiler_email_subject[<?php echo $language['code']; ?>]" value="<?php echo isset($pvnm_profiler_email_subject[$language['code']]) ? $pvnm_profiler_email_subject[$language['code']] : ''; ?>" placeholder="<?php echo $entry_subject; ?>" id="input-pvnm_profiler_email_subject<?php echo $language['code']; ?>" class="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="input-pvnm_profiler_email_message<?php echo $language['code']; ?>"><?php echo $entry_message; ?></label>
+										<div class="col-sm-10">
+											<textarea name="pvnm_profiler_email_message[<?php echo $language['code']; ?>]" placeholder="<?php echo $entry_message; ?>" id="input-pvnm_profiler_email_message<?php echo $language['code']; ?>" class="form-control"><?php echo isset($pvnm_profiler_email_message[$language['code']]) ? $pvnm_profiler_email_message[$language['code']] : ''; ?></textarea>
+										</div>
+									</div>
+								</div>
+								<?php } ?>
 							</div>
 						</div>
 						<div class="tab-pane" id="tab-help">
@@ -143,4 +194,14 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript"><!--
+<?php foreach ($languages as $language) { ?>
+	$('#input-pvnm_profiler_email_message<?php echo $language['code']; ?>').summernote({
+		height: 100
+	});
+<?php } ?>
+//--></script>
+<script type="text/javascript"><!--
+	$('#language-email a:first').tab('show');
+//--></script>
 <?php echo $footer; ?>

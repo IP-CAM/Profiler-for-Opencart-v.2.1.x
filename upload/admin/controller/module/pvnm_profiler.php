@@ -19,6 +19,7 @@ class ControllerModulePvnmProfiler extends Controller {
 
 		$data['heading_title'] = $this->language->get('heading_title');
 		$data['tab_settings'] = $this->language->get('tab_settings');
+		$data['tab_email'] = $this->language->get('tab_email');
 		$data['tab_help'] = $this->language->get('tab_help');
 		$data['text_edit'] = $this->language->get('text_edit');
 		$data['text_documentation'] = $this->language->get('text_documentation');
@@ -27,6 +28,10 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_catalog'] = $this->language->get('text_catalog');
 		$data['text_slow'] = $this->language->get('text_slow');
+		$data['text_email_url'] = $this->language->get('text_email_url');
+		$data['text_email_date'] = $this->language->get('text_email_date');
+		$data['text_email_time'] = $this->language->get('text_email_time');
+		$data['text_email_queries'] = $this->language->get('text_email_queries');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_body_status'] = $this->language->get('entry_body_status');
 		$data['entry_console_status'] = $this->language->get('entry_console_status');
@@ -34,6 +39,9 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['entry_page_time'] = $this->language->get('entry_page_time');
 		$data['entry_page_write'] = $this->language->get('entry_page_write');
 		$data['entry_page_email'] = $this->language->get('entry_page_email');
+		$data['entry_macros'] = $this->language->get('entry_macros');
+		$data['entry_subject'] = $this->language->get('entry_subject');
+		$data['entry_message'] = $this->language->get('entry_message');
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
 
@@ -104,6 +112,26 @@ class ControllerModulePvnmProfiler extends Controller {
 		} else {
 			$data['pvnm_profiler_page_email'] = $this->config->get('pvnm_profiler_page_email');
 		}
+
+		if (isset($this->request->post['pvnm_profiler_email_subject'])) {
+			$data['pvnm_profiler_email_subject'] = $this->request->post['pvnm_profiler_email_subject'];
+		} elseif ($this->config->get('pvnm_profiler_email_subject')) {
+			$data['pvnm_profiler_email_subject'] = $this->config->get('pvnm_profiler_email_subject');
+		} else {
+			$data['pvnm_profiler_email_subject'] = array();
+		}
+
+		if (isset($this->request->post['pvnm_profiler_email_message'])) {
+			$data['pvnm_profiler_email_message'] = $this->request->post['pvnm_profiler_email_message'];
+		} elseif ($this->config->get('pvnm_profiler_email_message')) {
+			$data['pvnm_profiler_email_message'] = $this->config->get('pvnm_profiler_email_message');
+		} else {
+			$data['pvnm_profiler_email_message'] = array();
+		}
+
+		$this->load->model('localisation/language');
+
+		$data['languages'] = $this->model_localisation_language->getLanguages();
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

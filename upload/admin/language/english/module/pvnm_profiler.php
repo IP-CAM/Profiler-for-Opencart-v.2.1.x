@@ -21,6 +21,7 @@ $_['text_email_time']         = 'Load Time SQL Queries';
 $_['text_email_queries']      = 'Number SQL Queries';
 $_['text_seconds']            = 's';
 $_['text_queries']            = 'SQL Queries';
+$_['text_last']               = 'Last Slow Page';
 
 // Button
 $_['button_loadings']         = 'Page Loadings';
@@ -28,9 +29,9 @@ $_['button_settings']         = 'Settings';
 
 // Column
 $_['column_url']              = 'Page URL';
-$_['column_time']             = 'Load Time SQL Queries';
-$_['column_query']            = 'Number SQL Queries';
-$_['column_slow']             = 'Number Slow SQL Queries';
+$_['column_time']             = 'Load Time Queries';
+$_['column_query']            = 'Number Queries';
+$_['column_slow']             = 'Number Slow Queries';
 $_['column_date']             = 'Date';
 
 // Entry
@@ -40,6 +41,7 @@ $_['entry_console_status']    = 'Displayed In Browser Console';
 $_['entry_query_time']        = 'Time Slow Query';
 $_['entry_page_time']         = 'Time Slow Page';
 $_['entry_page_write']        = 'Logging';
+$_['entry_informer']          = 'Admin Informer';
 $_['entry_page_email']        = 'Notify About Slow Pages';
 $_['entry_macros']            = 'Macros';
 $_['entry_subject']   		  = 'Subject';

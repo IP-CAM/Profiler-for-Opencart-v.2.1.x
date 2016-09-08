@@ -8,7 +8,7 @@ class ModelModulePvnmProfiler extends Model {
 		}
 
 		if (!empty($data['filter_time'])) {
-			$sql .= " AND l.time LIKE '" . $this->db->escape($data['filter_time']) . "%'";
+			$sql .= " AND l.time >= '" . $this->db->escape($data['filter_time']) . "%'";
 		}
 
 		if (!empty($data['filter_date'])) {
@@ -60,7 +60,7 @@ class ModelModulePvnmProfiler extends Model {
 		}
 
 		if (!empty($data['filter_time'])) {
-			$sql .= " AND l.time LIKE '" . $this->db->escape($data['filter_time']) . "%'";
+			$sql .= " AND l.time >= '" . $this->db->escape($data['filter_time']) . "%'";
 		}
 
 		if (!empty($data['filter_date'])) {

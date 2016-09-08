@@ -41,6 +41,7 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['entry_query_time'] = $this->language->get('entry_query_time');
 		$data['entry_page_time'] = $this->language->get('entry_page_time');
 		$data['entry_page_write'] = $this->language->get('entry_page_write');
+		$data['entry_informer'] = $this->language->get('entry_informer');
 		$data['entry_page_email'] = $this->language->get('entry_page_email');
 		$data['entry_macros'] = $this->language->get('entry_macros');
 		$data['entry_subject'] = $this->language->get('entry_subject');
@@ -109,6 +110,12 @@ class ControllerModulePvnmProfiler extends Controller {
 			$data['pvnm_profiler_page_write'] = $this->request->post['pvnm_profiler_page_write'];
 		} else {
 			$data['pvnm_profiler_page_write'] = $this->config->get('pvnm_profiler_page_write');
+		}
+
+		if (isset($this->request->post['pvnm_profiler_informer'])) {
+			$data['pvnm_profiler_informer'] = $this->request->post['pvnm_profiler_informer'];
+		} else {
+			$data['pvnm_profiler_informer'] = $this->config->get('pvnm_profiler_informer');
 		}
 
 		if (isset($this->request->post['pvnm_profiler_page_email'])) {

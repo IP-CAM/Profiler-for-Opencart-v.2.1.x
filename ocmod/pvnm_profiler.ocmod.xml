@@ -168,4 +168,65 @@ public function query($sql) {
 			]]></add>
 		</operation>
 	</file>
+	<file path="admin/controller/common/header.php">
+		<operation>
+			<search><![CDATA[
+$data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->data['token'], 'SSL');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->load->language('module/pvnm_profiler');
+
+			$data['text_profiler_title'] = $this->language->get('heading_title');
+			$data['text_profiler_pages'] = $this->language->get('text_slow');
+			$data['text_profiler_last'] = $this->language->get('text_last');
+			$data['text_profiler_time'] = $this->language->get('column_time');
+			$data['text_profiler_seconds'] = $this->language->get('text_seconds');
+			$data['text_profiler_query'] = $this->language->get('column_query');
+			$data['text_profiler_slow'] = $this->language->get('column_slow');
+			$data['text_profiler_date'] = $this->language->get('column_date');
+
+			$data['profiler_url'] = $this->url->link('module/pvnm_profiler/loadings', 'token=' . $this->session->data['token'] . '&filter_time=' . $this->config->get('pvnm_profiler_page_time'), 'SSL');
+
+			if ($this->config->get('pvnm_profiler_status') && $this->config->get('pvnm_profiler_informer') && $this->user->hasPermission('access', 'module/pvnm_profiler') && $this->user->hasPermission('modify', 'module/pvnm_profiler')) {
+				$data['profiler'] = true;
+
+				$this->load->model('module/pvnm_profiler');
+
+				$data['profiler_slow_total'] = $this->model_module_pvnm_profiler->getLoadingsTotal(array('filter_time' => $this->config->get('pvnm_profiler_page_time')));
+
+				$results = $this->model_module_pvnm_profiler->getLoadings(array('filter_time' => $this->config->get('pvnm_profiler_page_time'), 'sort' => 'l.date', 'order' => 'DESC', 'start' => 0, 'limit' => 1));
+
+				$data['profiler_time'] = $results[0]['time'];
+				$data['profiler_query'] = $results[0]['query'];
+				$data['profiler_slow'] = $results[0]['slow'];
+				$data['profiler_date'] = $results[0]['date'];
+			} else {
+				$data['profiler'] = false;
+			}
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/view/template/common/header.tpl">
+		<operation>
+			<search><![CDATA[
+<ul class="nav pull-right">
+			]]></search>
+			<add position="after"><![CDATA[
+	<?php if ($profiler) { ?>
+	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger pull-left"><?php echo $profiler_slow_total; ?></span> <i class="fa fa-tasks fa-lg"></i></a>
+	  <ul class="dropdown-menu dropdown-menu-right clear-dropdown">
+		<li class="dropdown-header"><?php echo $text_profiler_title; ?></li>
+		<li><a href="<?php echo $profiler_url; ?>" style="display: block; overflow: auto;"><span class="label label-danger pull-right"><?php echo $profiler_slow_total; ?></span><?php echo $text_profiler_pages; ?></a></li>
+		<li class="divider"></li>
+		<li class="dropdown-header"><?php echo $text_profiler_last; ?></li>
+		<li><a><?php echo $text_profiler_time; ?><span class="label label-warning pull-right"><?php echo $profiler_time; ?> <?php echo $text_profiler_seconds; ?></span></a></li>
+		<li><a><?php echo $text_profiler_query; ?><span class="label label-warning pull-right"><?php echo $profiler_query; ?></span></a></li>
+		<li><a><?php echo $text_profiler_slow; ?><span class="label label-warning pull-right"><?php echo $profiler_slow; ?></span></a></li>
+		<li><a><?php echo $text_profiler_date; ?><span class="label label-warning pull-right"><?php echo $profiler_date; ?></span></a></li>
+	  </ul>
+	</li>
+	<?php } ?>
+			]]></add>
+		</operation>
+	</file>
 </modification>

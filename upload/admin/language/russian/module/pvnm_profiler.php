@@ -17,10 +17,11 @@ $_['text_developer']          = 'Разработчик';
 $_['text_slow']               = 'Медленные страницы';
 $_['text_email_url']          = 'Адрес страницы';
 $_['text_email_date']         = 'Дата';
-$_['text_email_time']         = 'Время загрузки запросов';
+$_['text_email_time']         = 'Длительность загрузки';
 $_['text_email_queries']      = 'Количество запросов';
 $_['text_seconds']            = 'с';
 $_['text_queries']            = 'Запросы';
+$_['text_last']               = 'Последняя медленная страница';
 
 // Button
 $_['button_loadings']         = 'Загрузки страниц';
@@ -28,7 +29,7 @@ $_['button_settings']         = 'Настройки';
 
 // Column
 $_['column_url']              = 'Адрес страницы';
-$_['column_time']             = 'Время загрузки';
+$_['column_time']             = 'Длительность';
 $_['column_query']            = 'Количество запросов';
 $_['column_slow']             = 'Медленных запросов';
 $_['column_date']             = 'Дата';
@@ -37,15 +38,16 @@ $_['column_date']             = 'Дата';
 $_['entry_status']            = 'Статус';
 $_['entry_body_status']       = 'Отображать в теле страницы';
 $_['entry_console_status']    = 'Отображать в консоли браузера';
-$_['entry_query_time']        = 'Время медленного запроса';
-$_['entry_page_time']         = 'Время медленной страницы';
+$_['entry_query_time']        = 'Длительность медленного запроса';
+$_['entry_page_time']         = 'Длительность медленной страницы';
 $_['entry_page_write']        = 'Логирование';
+$_['entry_informer']          = 'Информер админа';
 $_['entry_page_email']        = 'Оповещать по email о медленных страницах';
 $_['entry_macros']            = 'Макросы';
 $_['entry_subject']           = 'Заголовок';
 $_['entry_message']           = 'Сообщение';
 $_['entry_url']               = 'Адрес страницы';
-$_['entry_time']              = 'Время загрузки';
+$_['entry_time']              = 'Длительность загрузки';
 $_['entry_query']             = 'Количество запросов';
 $_['entry_date']              = 'Дата';
 

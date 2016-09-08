@@ -16,7 +16,7 @@ public function query($sql) {
 	private $config = array();
 
 	public function __destruct() {
-		if ($this->config['pvnm_profiler_status']) {
+		if (!empty($this->config) && $this->config['pvnm_profiler_status']) {
 			if ($this->config['pvnm_profiler_body_status']) {
 				print_r('<pre style="font-size: 11px;">');
 				print_r('Page: http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '<br>');

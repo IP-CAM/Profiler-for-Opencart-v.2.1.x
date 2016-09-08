@@ -109,7 +109,7 @@
 										<?php } ?>
 									</td>
 									<td class="text-left"><a href="<?php echo $loading['url']; ?>" target="_blank"><?php echo $loading['url']; ?></a></td>
-									<td class="text-center"><?php echo $loading['time']; ?></td>
+									<td class="text-center"><?php echo $loading['time']; ?> <?php echo $text_seconds; ?></td>
 									<td class="text-center"><a class="btn btn-primary btn-xs"><?php echo $loading['query']; ?></a></td>
 									<td class="text-center"><span class="label label-<?php if ($loading['slow'] > 0) { ?>danger<?php } else { ?>success<?php } ?>"><?php echo $loading['slow']; ?></span></td>
 									<td class="text-right"><?php echo $loading['date']; ?></td>

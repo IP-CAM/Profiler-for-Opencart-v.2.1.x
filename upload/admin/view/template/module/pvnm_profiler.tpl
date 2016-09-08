@@ -79,14 +79,20 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="input-pvnm_profiler_query_time"><?php echo $entry_query_time; ?></label>
-								<div class="col-sm-10">
-									<input type="text" name="pvnm_profiler_query_time" value="<?php echo $pvnm_profiler_query_time; ?>" id="input-pvnm_profiler_query_time" class="form-control" />
+								<div class="col-sm-2">
+									<div class="input-group pull-left">
+										<input type="text" name="pvnm_profiler_query_time" value="<?php echo $pvnm_profiler_query_time; ?>" id="input-pvnm_profiler_query_time" class="form-control" />
+										<span class="input-group-addon"><?php echo $text_seconds; ?></span>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="input-pvnm_profiler_page_time"><?php echo $entry_page_time; ?></label>
-								<div class="col-sm-10">
-									<input type="text" name="pvnm_profiler_page_time" value="<?php echo $pvnm_profiler_page_time; ?>" id="input-pvnm_profiler_page_time" class="form-control" />
+								<div class="col-sm-2">
+									<div class="input-group pull-left">
+										<input type="text" name="pvnm_profiler_page_time" value="<?php echo $pvnm_profiler_page_time; ?>" id="input-pvnm_profiler_page_time" class="form-control" />
+										<span class="input-group-addon"><?php echo $text_seconds; ?></span>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">

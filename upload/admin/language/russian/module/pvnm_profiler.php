@@ -19,6 +19,7 @@ $_['text_email_url']          = 'Адрес страницы';
 $_['text_email_date']         = 'Дата';
 $_['text_email_time']         = 'Время загрузки запросов';
 $_['text_email_queries']      = 'Количество запросов';
+$_['text_seconds']            = 'с';
 
 // Button
 $_['button_loadings']         = 'Загрузки страниц';

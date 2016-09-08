@@ -34,6 +34,7 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['text_email_date'] = $this->language->get('text_email_date');
 		$data['text_email_time'] = $this->language->get('text_email_time');
 		$data['text_email_queries'] = $this->language->get('text_email_queries');
+		$data['text_seconds'] = $this->language->get('text_seconds');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_body_status'] = $this->language->get('entry_body_status');
 		$data['entry_console_status'] = $this->language->get('entry_console_status');
@@ -277,6 +278,7 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['column_slow'] = $this->language->get('column_slow');
 		$data['column_date'] = $this->language->get('column_date');
 		$data['text_list'] = $this->language->get('heading_title_list');
+		$data['text_seconds'] = $this->language->get('text_seconds');
 		$data['text_no_results'] = $this->language->get('text_no_results');
 		$data['text_confirm'] = $this->language->get('text_confirm');
 		$data['entry_url'] = $this->language->get('entry_url');

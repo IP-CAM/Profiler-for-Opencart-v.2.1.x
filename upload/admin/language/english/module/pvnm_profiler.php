@@ -19,6 +19,7 @@ $_['text_email_url']          = 'Page URL';
 $_['text_email_date']         = 'Date';
 $_['text_email_time']         = 'Load Time SQL Queries';
 $_['text_email_queries']      = 'Number SQL Queries';
+$_['text_seconds']            = 's';
 
 // Button
 $_['button_loadings']         = 'Page Loadings';

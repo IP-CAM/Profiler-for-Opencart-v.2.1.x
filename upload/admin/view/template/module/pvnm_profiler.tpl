@@ -4,7 +4,7 @@
 		<div class="container-fluid">
 			<div class="pull-right">
 				<a href="<?php echo $loadings; ?>" data-toggle="tooltip" title="<?php echo $button_loadings; ?>" class="btn btn-default"><i class="fa fa-tasks"></i></a>
-				<a href="<?php echo $settings; ?>" data-toggle="tooltip" title="<?php echo $button_settings; ?>" class="btn btn-default active"><i class="fa fa-cogs"></i></a>
+				<a href="<?php echo $settings; ?>" data-toggle="tooltip" title="<?php echo $button_settings; ?>" class="btn btn-default active" style="margin-right: 30px;"><i class="fa fa-cogs"></i></a>
 				<button type="submit" form="form" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
 				<a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a>
 			</div>

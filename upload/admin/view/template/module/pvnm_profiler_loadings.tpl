@@ -4,7 +4,7 @@
 		<div class="container-fluid">
 			<div class="pull-right">
 				<a href="<?php echo $loadings; ?>" data-toggle="tooltip" title="<?php echo $button_loadings; ?>" class="btn btn-default active"><i class="fa fa-tasks"></i></a>
-				<a href="<?php echo $settings; ?>" data-toggle="tooltip" title="<?php echo $button_settings; ?>" class="btn btn-default"><i class="fa fa-cogs"></i></a>
+				<a href="<?php echo $settings; ?>" data-toggle="tooltip" title="<?php echo $button_settings; ?>" class="btn btn-default" style="margin-right: 30px;"><i class="fa fa-cogs"></i></a>
 				<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form').submit() : false;"><i class="fa fa-trash-o"></i></button>
 			</div>
 			<h1><?php echo $heading_title; ?></h1>
@@ -110,7 +110,7 @@
 									</td>
 									<td class="text-left"><a href="<?php echo $loading['url']; ?>" target="_blank"><?php echo $loading['url']; ?></a></td>
 									<td class="text-center"><?php echo $loading['time']; ?></td>
-									<td class="text-center"><?php echo $loading['query']; ?></td>
+									<td class="text-center"><a class="btn btn-primary btn-xs"><?php echo $loading['query']; ?></a></td>
 									<td class="text-center"><span class="label label-<?php if ($loading['slow'] > 0) { ?>danger<?php } else { ?>success<?php } ?>"><?php echo $loading['slow']; ?></span></td>
 									<td class="text-right"><?php echo $loading['date']; ?></td>
 								</tr>

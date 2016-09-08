@@ -100,7 +100,7 @@
 							<tbody>
 								<?php if ($loadings) { ?>
 								<?php foreach ($loadings as $loading) { ?>
-								<tr>
+								<tr class="<?php if ($loading['time'] >= $slow_page) { ?>danger<?php } ?>">
 									<td class="text-center">
 										<?php if (in_array($loading['loading_id'], $selected)) { ?>
 										<input type="checkbox" name="selected[]" value="<?php echo $loading['loading_id']; ?>" checked="checked" />
@@ -108,10 +108,10 @@
 										<input type="checkbox" name="selected[]" value="<?php echo $loading['loading_id']; ?>" />
 										<?php } ?>
 									</td>
-									<td class="text-left"><?php echo $loading['url']; ?></td>
-									<td class="text-center"><span class="label label-<?php if ($loading['time'] >= $slow_page) { ?>danger<?php } else { ?>success<?php } ?>"><?php echo $loading['time']; ?></span></td>
-									<td class="text-center"><span class="label label-default"><?php echo $loading['query']; ?></span></td>
-									<td class="text-center"><span class="label label-danger"><?php echo $loading['slow']; ?></span></td>
+									<td class="text-left"><a href="<?php echo $loading['url']; ?>" target="_blank"><?php echo $loading['url']; ?></a></td>
+									<td class="text-center"><?php echo $loading['time']; ?></td>
+									<td class="text-center"><?php echo $loading['query']; ?></td>
+									<td class="text-center"><span class="label label-<?php if ($loading['slow'] > 0) { ?>danger<?php } else { ?>success<?php } ?>"><?php echo $loading['slow']; ?></span></td>
 									<td class="text-right"><?php echo $loading['date']; ?></td>
 								</tr>
 								<?php } ?>

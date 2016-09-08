@@ -14,7 +14,6 @@ $_['text_success']            = 'Success: You have modified module!';
 $_['text_edit']               = 'Edit Module';
 $_['text_documentation']      = 'Documentation';
 $_['text_developer']          = 'Developer';
-$_['text_catalog']            = 'Only in Catalog';
 $_['text_slow']               = 'Only Slow Pages';
 $_['text_email_url']          = 'Page URL';
 $_['text_email_date']         = 'Date';

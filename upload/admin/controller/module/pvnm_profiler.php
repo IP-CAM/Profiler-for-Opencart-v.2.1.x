@@ -29,7 +29,6 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['text_developer'] = $this->language->get('text_developer');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 		$data['text_enabled'] = $this->language->get('text_enabled');
-		$data['text_catalog'] = $this->language->get('text_catalog');
 		$data['text_slow'] = $this->language->get('text_slow');
 		$data['text_email_url'] = $this->language->get('text_email_url');
 		$data['text_email_date'] = $this->language->get('text_email_date');
@@ -238,7 +237,7 @@ class ControllerModulePvnmProfiler extends Controller {
 		$data['settings'] = $this->url->link('module/pvnm_profiler', 'token=' . $this->session->data['token'], 'SSL');
 		$data['delete'] = $this->url->link('module/pvnm_profiler/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		$data['loadings'] = array();
+		$data['pvnm_loadings'] = array();
 
 		$filter_data = array(
 			'filter_url'   => $filter_url,
@@ -255,13 +254,13 @@ class ControllerModulePvnmProfiler extends Controller {
 		$results = $this->model_module_pvnm_profiler->getLoadings($filter_data);
  
 		foreach ($results as $result) {
-			$data['loadings'][] = array(
+			$data['pvnm_loadings'][] = array(
 				'loading_id' => $result['loading_id'],
-				'url'        => $result['url'],
+				'url'        => 'http://' . $result['url'],
 				'time'       => $result['time'],
 				'query'      => $result['query'],
 				'slow'       => $result['slow'],
-				'date'       => date($this->language->get('date_format_short'), strtotime($result['date'])),
+				'date'       => $result['date'],
 				'selected'   => isset($this->request->post['selected']) && in_array($result['loading_id'], $this->request->post['selected']),
 				'href'       => $this->url->link('module/pvnm_profiler/queries', 'token=' . $this->session->data['token'] . '&loading_id=' . $result['loading_id'], 'SSL')
 			);

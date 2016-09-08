@@ -98,8 +98,8 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php if ($loadings) { ?>
-								<?php foreach ($loadings as $loading) { ?>
+								<?php if ($pvnm_loadings) { ?>
+								<?php foreach ($pvnm_loadings as $loading) { ?>
 								<tr class="<?php if ($loading['time'] >= $slow_page) { ?>danger<?php } ?>">
 									<td class="text-center">
 										<?php if (in_array($loading['loading_id'], $selected)) { ?>

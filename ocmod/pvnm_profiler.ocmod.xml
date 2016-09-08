@@ -16,9 +16,7 @@ public function query($sql) {
 	private $config = array();
 
 	public function __destruct() {
-		$uri = explode('/', $_SERVER['REQUEST_URI']);
-
-		if (isset($this->config['pvnm_profiler_status']) && ($this->config['pvnm_profiler_status'] == 1 || ($this->config['pvnm_profiler_status'] == 2 && (!isset($uri[2]) || isset($uri[2]) && $uri[2] != 'admin')))) {
+		if ($this->config['pvnm_profiler_status']) {
 			if ($this->config['pvnm_profiler_body_status']) {
 				print_r('<pre style="font-size: 11px;">');
 				print_r('Page: http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '<br>');

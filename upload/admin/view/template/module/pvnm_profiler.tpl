@@ -27,7 +27,7 @@
 				<h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo $text_edit; ?></h3>
 			</div>
 			<div class="panel-body">
-				<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
+				<form action="<?php echo $settings; ?>" method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab-settings" data-toggle="tab"><?php echo $tab_settings; ?></a></li>
 						<li><a href="#tab-email" data-toggle="tab"><?php echo $tab_email; ?></a></li>
@@ -39,18 +39,12 @@
 								<label class="col-sm-2 control-label" for="input-pvnm_profiler_status"><?php echo $entry_status; ?></label>
 								<div class="col-sm-10">
 									<div class="btn-group" data-toggle="buttons">
-										<?php if ($pvnm_profiler_status == 1) { ?>
+										<?php if ($pvnm_profiler_status) { ?>
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
 										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off" checked="checked"><?php echo $text_enabled; ?></label>
-										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off"><?php echo $text_catalog; ?></label>
-										<?php } elseif ($pvnm_profiler_status == 2) { ?>
-										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
-										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
-										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off" checked="checked"><?php echo $text_catalog; ?></label>
 										<?php } else { ?>
 										<label class="btn btn-info active"><input type="radio" name="pvnm_profiler_status" value="0" autocomplete="off" checked="checked"><?php echo $text_disabled; ?></label>
 										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
-										<label class="btn btn-info"><input type="radio" name="pvnm_profiler_status" value="2" autocomplete="off"><?php echo $text_catalog; ?></label>
 										<?php } ?>
 									</div>
 								</div>

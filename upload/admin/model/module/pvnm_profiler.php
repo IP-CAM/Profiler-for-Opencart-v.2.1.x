@@ -77,6 +77,12 @@ class ModelModulePvnmProfiler extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "pvnm_query WHERE loading_id = '" . (int)$loading_id . "'");
 	}
 
+	public function getQueries($loading_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "pvnm_query WHERE loading_id = '" . (int)$loading_id . "'");
+
+		return $query->rows;
+	}
+
 	public function install() {
 		$this->db->query("CREATE TABLE IF NOT EXISTS " . DB_PREFIX . "pvnm_loading (
 			loading_id int(11) NOT NULL AUTO_INCREMENT,

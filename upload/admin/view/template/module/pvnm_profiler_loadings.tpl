@@ -110,7 +110,7 @@
 									</td>
 									<td class="text-left"><a href="<?php echo $loading['url']; ?>" target="_blank"><?php echo $loading['url']; ?></a></td>
 									<td class="text-center"><?php echo $loading['time']; ?> <?php echo $text_seconds; ?></td>
-									<td class="text-center"><a class="btn btn-primary btn-xs"><?php echo $loading['query']; ?></a></td>
+									<td class="text-center"><a class="btn btn-default btn-xs" onclick="getQueries('<?php echo $loading['loading_id']; ?>');"><?php echo $loading['query']; ?></a></td>
 									<td class="text-center"><span class="label label-<?php if ($loading['slow'] > 0) { ?>danger<?php } else { ?>success<?php } ?>"><?php echo $loading['slow']; ?></span></td>
 									<td class="text-right"><?php echo $loading['date']; ?></td>
 								</tr>
@@ -163,5 +163,57 @@ $('#button-filter').on('click', function() {
 $('.date').datetimepicker({
 	pickTime: false
 });
+//--></script>
+<script type="text/javascript"><!--
+function getQueries(loading_id) {
+	$('#modal-query').remove();
+
+	$.ajax({
+		url: 'index.php?route=module/pvnm_profiler/getQueries&token=<?php echo $token; ?>',
+		type: 'post',
+		data: 'loading_id=' + loading_id,
+		dataType: 'json',
+		success: function(json) {
+			if (json['success']) {
+				html  = '<div id="modal-query" class="modal">';
+				html += '  <div class="modal-dialog modal-lg">';
+				html += '    <div class="modal-content">';
+				html += '      <div class="modal-header">';
+				html += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+				html += '        <h4 class="modal-title">' + json['title'] + '</h4>';
+				html += '      </div>';
+				html += '      <div class="modal-body">' + json['queries'] + '</div>';
+				html += '    </div';
+				html += '  </div>';
+				html += '</div>';
+
+				$('body').append(html);
+
+				$('#modal-query').modal('show');
+			}
+
+			if (json['error']) {
+				html  = '<div id="modal-query" class="modal">';
+				html += '  <div class="modal-dialog modal-lg">';
+				html += '    <div class="modal-content">';
+				html += '      <div class="modal-header">';
+				html += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+				html += '        <h4 class="modal-title">' + json['title'] + '</h4>';
+				html += '      </div>';
+				html += '      <div class="modal-body">' + json['error'] + '</div>';
+				html += '    </div';
+				html += '  </div>';
+				html += '</div>';
+
+				$('body').append(html);
+
+				$('#modal-query').modal('show');
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+}
 //--></script>
 <?php echo $footer; ?>

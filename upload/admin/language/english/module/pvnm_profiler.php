@@ -14,12 +14,13 @@ $_['text_success']            = 'Success: You have modified module!';
 $_['text_edit']               = 'Edit Module';
 $_['text_documentation']      = 'Documentation';
 $_['text_developer']          = 'Developer';
-$_['text_slow']               = 'Only Slow Pages';
+$_['text_slow']               = 'Slow Pages';
 $_['text_email_url']          = 'Page URL';
 $_['text_email_date']         = 'Date';
 $_['text_email_time']         = 'Load Time SQL Queries';
 $_['text_email_queries']      = 'Number SQL Queries';
 $_['text_seconds']            = 's';
+$_['text_queries']            = 'SQL Queries';
 
 // Button
 $_['button_loadings']         = 'Page Loadings';
@@ -38,7 +39,7 @@ $_['entry_body_status']       = 'Displayed In Body';
 $_['entry_console_status']    = 'Displayed In Browser Console';
 $_['entry_query_time']        = 'Time Slow Query';
 $_['entry_page_time']         = 'Time Slow Page';
-$_['entry_page_write']        = 'Logging of Queries';
+$_['entry_page_write']        = 'Logging';
 $_['entry_page_email']        = 'Notify About Slow Pages';
 $_['entry_macros']            = 'Macros';
 $_['entry_subject']   		  = 'Subject';

@@ -414,6 +414,41 @@ class ControllerModulePvnmProfiler extends Controller {
 		$this->loadings();
 	}
 
+	public function getQueries() {
+		$this->load->language('module/pvnm_profiler');
+
+		$this->load->model('module/pvnm_profiler');
+
+		$json = array();
+
+		$json['title'] = $this->language->get('text_queries');
+
+		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+			$json['queries'] = array();
+
+			$results = $this->model_module_pvnm_profiler->getQueries($this->request->post['loading_id']);
+
+			$json['queries'] = '<pre style="font-size: 11px;">';
+
+			foreach ($results as $result) {
+				if ($result['time'] >= $this->config->get('pvnm_profiler_query_time')) {
+					$json['queries'] .= '<span style="color: red !important;">' . $result['time'] . ' ' . $this->language->get('text_seconds') . ' - ' . $result['query'] . '</span><br>';
+				} else {
+					$json['queries'] .= '<span>' . $result['time'] . ' ' . $this->language->get('text_seconds') . ' - ' . $result['query'] . '</span><br>';
+				}
+			}
+
+			$json['queries'] .= '</pre>';
+
+			$json['success'] = $this->language->get('text_success');
+		} else {
+			$json['error'] = $this->error['warning'];
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+
 	protected function validate() {
 		if (!$this->user->hasPermission('modify', 'module/pvnm_profiler')) {
 			$this->error['warning'] = $this->language->get('error_permission');

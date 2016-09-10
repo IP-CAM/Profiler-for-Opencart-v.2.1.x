@@ -140,8 +140,8 @@ class ControllerModulePvnmProfiler extends Controller {
 			$data['pvnm_profiler_email_message'] = array();
 		}
 
-		$data['languages'] = $this->model_localisation_language->getLanguages();
 		$data['token'] = $this->session->data['token'];
+		$data['languages'] = $this->model_localisation_language->getLanguages();
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -374,13 +374,13 @@ class ControllerModulePvnmProfiler extends Controller {
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($loadings_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($loadings_total - $this->config->get('config_limit_admin'))) ? $loadings_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $loadings_total, ceil($loadings_total / $this->config->get('config_limit_admin')));
 
+		$data['token'] = $this->session->data['token'];
+		$data['slow_page'] = $this->config->get('pvnm_profiler_page_time');
 		$data['filter_url'] = $filter_url;
 		$data['filter_time'] = $filter_time;
 		$data['filter_date'] = $filter_date;
 		$data['sort'] = $sort;
 		$data['order'] = $order;
-		$data['token'] = $this->session->data['token'];
-		$data['slow_page'] = $this->config->get('pvnm_profiler_page_time');
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

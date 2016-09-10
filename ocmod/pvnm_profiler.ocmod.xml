@@ -181,7 +181,7 @@ $data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->d
 			$data['text_profiler_last'] = $this->language->get('text_last');
 			$data['text_profiler_time'] = $this->language->get('column_time');
 			$data['text_profiler_seconds'] = $this->language->get('text_seconds');
-			$data['text_profiler_query'] = $this->language->get('column_query');
+			$data['text_profiler_query'] = $this->language->get('text_queries');
 			$data['text_profiler_slow'] = $this->language->get('column_slow');
 			$data['text_profiler_date'] = $this->language->get('column_date');
 

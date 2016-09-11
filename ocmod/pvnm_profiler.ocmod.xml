@@ -2,7 +2,7 @@
 <modification>
 	<code>pvnm_profiler</code>
 	<name>Profiler</name>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<author>p0v1n0m@gmail.com</author>
 	<link>mailto:p0v1n0m@gmail.com</link>
 	<file path="system/library/db.php">
@@ -196,10 +196,17 @@ $data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->d
 
 				$results = $this->model_module_pvnm_profiler->getLoadings(array('filter_time' => $this->config->get('pvnm_profiler_page_time'), 'sort' => 'l.date', 'order' => 'DESC', 'start' => 0, 'limit' => 1));
 
-				$data['profiler_time'] = $results[0]['time'];
-				$data['profiler_query'] = $results[0]['query'];
-				$data['profiler_slow'] = $results[0]['slow'];
-				$data['profiler_date'] = $results[0]['date'];
+				if (isset($results[0])) {
+					$data['profiler_time'] = $results[0]['time'];
+					$data['profiler_query'] = $results[0]['query'];
+					$data['profiler_slow'] = $results[0]['slow'];
+					$data['profiler_date'] = $results[0]['date'];
+				} else {
+					$data['profiler_time'] = 0;
+					$data['profiler_query'] = 0;
+					$data['profiler_slow'] = 0;
+					$data['profiler_date'] = false;
+				}
 			} else {
 				$data['profiler'] = false;
 			}

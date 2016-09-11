@@ -118,7 +118,7 @@ public function query($sql) {
 
 		$query = $this->db->query($sql);
 
-		if (substr($sql, 0, 32) == 'SELECT * FROM `' . DB_PREFIX . 'setting` WHERE') {
+		if (substr($sql, 0, (29 + mb_strlen(DB_PREFIX))) == 'SELECT * FROM `' . DB_PREFIX . 'setting` WHERE') {
 			$configs = array(
 				'pvnm_profiler_status',
 				'pvnm_profiler_body_status',
